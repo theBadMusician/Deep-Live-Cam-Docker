@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    image: deep-live-cam
+    runtime: nvidia
+    devices:
+      - "/dev/video0:/dev/video0"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/beng/Projects/Deep-Live-Cam/assets:/Deep-Live-Cam/assets
+    environment:
+      - DISPLAY=${DISPLAY}
+    tty: true
+    stdin_open: true
